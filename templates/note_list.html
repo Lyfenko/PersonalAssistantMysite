@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Note List</title>
+    <!-- Add your CSS stylesheets and JavaScript files here -->
+</head>
+<body>
+    <h1>Note List</h1>
+
+    <ul>
+        {% for note in notes %}
+        <li>
+            <h3>{{ note.title }}</h3>
+            <p>{{ note.content }}</p>
+            <p>Tags: {{ note.tags }}</p>
+            <p>Created: {{ note.created_at }}</p>
+            <p>Updated: {{ note.updated_at }}</p>
+            <p>
+                <a href="{% url 'edit_note' note.id %}">Edit</a>
+                <a href="{% url 'delete_note' note.id %}">Delete</a>
+            </p>
+        </li>
+        {% empty %}
+        <li>No notes found.</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Add additional HTML elements and content as needed -->
+
+    <!-- Add your JavaScript code here -->
+</body>
+</html>

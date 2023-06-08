@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Note</title>
+    <!-- Add your CSS stylesheets and JavaScript files here -->
+</head>
+<body>
+    <h1>Edit Note</h1>
+
+    <form method="POST" action="{% url 'edit_note' note.id %}">
+        {% csrf_token %}
+
+        <!-- Title -->
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" value="{{ note.title }}" required>
+
+        <!-- Content -->
+        <label for="content">Content:</label>
+        <textarea id="content" name="content" required>{{ note.content }}</textarea>
+
+        <!-- Tags -->
+        <label for="tags">Tags:</label>
+        <input type="text" id="tags" name="tags" value="{{ note.tags }}">
+
+        <!-- Submit Button -->
+        <button type="submit">Update Note</button>
+    </form>
+
+    <!-- Add additional HTML elements and content as needed -->
+
+    <!-- Add your JavaScript code here -->
+</body>
+</html>
